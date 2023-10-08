@@ -31,7 +31,9 @@ def main():
         # Streamlit 앱에 HTML 삽입
         st.write(tossme_button, unsafe_allow_html=True)
 
-        chat_model = ChatOpenAI()
+        #chat_model = ChatOpenAI()
+        api_key = st.secrets["OPENAI_API_KEY"]  # Cloud version
+        chat_model = ChatOpenAI(openai_api_key=open_api_key)
         # LLM2 AI Model sknam 
         #llm = CTransformers(
         #    # model="llama-2-7b-chat.ggmlv3.q2_K.bin",
