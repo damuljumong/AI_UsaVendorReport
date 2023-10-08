@@ -32,7 +32,7 @@ def main():
         st.write(tossme_button, unsafe_allow_html=True)
 
         #chat_model = ChatOpenAI()
-        api_key = st.secrets["OPENAI_API_KEY"]  # Cloud version
+        open_api_key = st.secrets["OPENAI_API_KEY"]  # Cloud version
         chat_model = ChatOpenAI(openai_api_key=open_api_key)
         # LLM2 AI Model sknam 
         #llm = CTransformers(
