@@ -1,9 +1,9 @@
 import streamlit as st
-# from langchain.chat_models import ChatOpenAI
-from langchain.llms import CTransformers # LLM2 AI Model
-from dotenv import load_dotenv
-load_dotenv()
-import os
+from langchain.chat_models import ChatOpenAI
+#from langchain.llms import CTransformers # LLM2 AI Model
+#from dotenv import load_dotenv
+#load_dotenv()
+#import os
 import OpenDartReader
 # import openpyxl
 import pandas as pd
@@ -31,16 +31,16 @@ def main():
         # Streamlit 앱에 HTML 삽입
         st.write(tossme_button, unsafe_allow_html=True)
 
-        # chat_model = ChatOpenAI()
+        chat_model = ChatOpenAI()
         # LLM2 AI Model sknam 
-        llm = CTransformers(
-            # model="llama-2-7b-chat.ggmlv3.q2_K.bin",
-            model="llama-2-7b-chat.ggmlv3.q8_0.bin",
-            model_type="llama"
-        )
+        #llm = CTransformers(
+        #    # model="llama-2-7b-chat.ggmlv3.q2_K.bin",
+        #    model="llama-2-7b-chat.ggmlv3.q8_0.bin",
+        #    model_type="llama"
+        #)
 
-        api_key = os.getenv("API_KEY_DART")
-        # api_key = st.secrets["API_KEY_DART"]  # Cloud version
+        #api_key = os.getenv("API_KEY_DART")
+        api_key = st.secrets["API_KEY_DART"]  # Cloud version
         dart = OpenDartReader(api_key) 
 
         st.title('해외 업체 경영현황 보고서')
@@ -362,8 +362,8 @@ def main():
                             st.write(each_event)
                             st.dataframe(issues, width=1200)
             st.write("인공지능 Open AI 로")
-            # result = chat_model.predict(content + "을 분석해줘")    # OpenAI sknam
-            result = llm.predict(" Vendor Report " + content + ": ") # LLM2 AI Model sknam
+            result = chat_model.predict(content + "을 분석해줘")    # OpenAI sknam
+            #result = llm.predict(" Vendor Report " + content + ": ") # LLM2 AI Model sknam
             st.write(result)
 
 if __name__ == '__main__':
