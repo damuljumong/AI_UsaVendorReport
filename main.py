@@ -130,7 +130,7 @@ def main():
                     data ["y"] = data["Close"]                            
                     data = data [["ds","y"]]
                     st.write("monthly_prices Stock Prices:",data)
-
+                    st.write("future Stock Price forcast using AI Facebook Prophet Model ")
                     # model = Prophet()
                     # 주말을 제외하고 1주일간의 예측을 수행하는 Prophet 모델 생성
                     model = Prophet(weekly_seasonality=False)
@@ -165,10 +165,10 @@ def main():
                     # st.write("Forecast for Tomorrow:", forecast.tail(5))
                     # st.write("Forecast for Tomorrow:", forecast[['ds', 'yhat']].tail(5))
                     # 'ds'와 'yhat' 열의 이름 변경
-                    forecast.rename(columns={'ds': 'Date', 'yhat': 'Close'}, inplace=True)
+                    forecast.rename(columns={'ds': 'Date', 'yhat': 'Close Price'}, inplace=True)
 
                     # 변경된 DataFrame 출력
-                    st.write("Forecast for Tomorrow:", forecast[['Date', 'Close']].tail(4))
+                    st.write("Forecast Close Price for future Tomorrow and 3 Days :", forecast[['Date', 'Close']].tail(4))
 
                     # 분기별 재무 정보 가져오기
                     quarterly_financials = stock.quarterly_financials
