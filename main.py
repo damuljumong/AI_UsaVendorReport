@@ -158,18 +158,20 @@ def main():
                     fig1.gca().legend(["Prophet Forecast", "Actual"])
 
                     st.pyplot(fig1)
-                    # st.write("Forecast for Tomorrow:", forecast.tail(1))
-                    # st.write("Forecast for Tomorrow:", forecast.tail(2))
-                    # st.write("Forecast for Tomorrow:", forecast.tail(3))
-                    # st.write("Forecast for Tomorrow:", forecast.tail(4))
-                    # st.write("Forecast for Tomorrow:", forecast.tail(5))
                     # st.write("Forecast for Tomorrow:", forecast[['ds', 'yhat']].tail(5))
                     # 'ds'와 'yhat' 열의 이름 변경
                     forecast.rename(columns={'ds': 'Date', 'yhat': 'Close Price'}, inplace=True)
 
                     # 변경된 DataFrame 출력
-                    st.write("Forecast Close Price for future Tomorrow and 3 Days :", forecast[['Date', 'Close Price']].tail(4))
+                    # st.write("Forecast Close Price for future Tomorrow and 3 Days :", forecast[['Date', 'Close Price']].tail(4))
+                    # future 데이터프레임에 있는 모든 날짜 중에서 토요일 및 일요일을 필터링하여 제외
+                    forecast['day_of_week'] = forecast['Date'].dt.dayofweek
+                    filtered_forecast = forecast[~((forecast['day_of_week'] == 5) | (forecast['day_of_week'] == 6))]
 
+                    # 필터링된 예측 데이터 출력 (토요일 및 일요일 제외)
+                    st.write("Forecast for Next 7 Days (Excluding Saturdays and Sundays):")
+                    st.write(filtered_forecast[['Date', 'Close']].tail(7))
+                    
                     # 분기별 재무 정보 가져오기
                     quarterly_financials = stock.quarterly_financials
                     st.write("Quarterly Financial Statements:", quarterly_financials)
