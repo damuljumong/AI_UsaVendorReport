@@ -169,8 +169,8 @@ def main():
                     filtered_forecast = forecast[~((forecast['day_of_week'] == 5) | (forecast['day_of_week'] == 6))]
 
                     # 필터링된 예측 데이터 출력 (토요일 및 일요일 제외)
-                    st.write("Forecast for Next 7 Days (Excluding Saturdays and Sundays):")
-                    st.write(filtered_forecast[['Date', 'Close Price']].tail(7))
+                    st.write("Forecast for Next 5 Days (Excluding Saturdays and Sundays):")
+                    st.write(filtered_forecast[['Date', 'Close Price']].tail(5))
                     
                     # 분기별 재무 정보 가져오기
                     quarterly_financials = stock.quarterly_financials
