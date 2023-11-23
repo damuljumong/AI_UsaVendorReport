@@ -186,20 +186,29 @@ def main():
                     # print("Income Statement:",income_statement)
 
                     # P/E 비율 가져오기
-                    pe_ratio = stock.info["trailingPE"]
-                    st.write(f"P/E Ratio: {pe_ratio}")
-
+                    try:
+                        pe_ratio = stock.info["trailingPE"]
+                        st.write(f"P/E Ratio: {pe_ratio}")
+                    except:
+                        st.write(f"P/E Ratio:")
+                    
                     # 배당 수익률 가져오기
-                    dividend_yield = stock.info["trailingAnnualDividendYield"]
-                    st.write(f"Dividend Yield: {dividend_yield * 100}%")
+                    try:
+                        dividend_yield = stock.info["trailingAnnualDividendYield"]
+                        st.write(f"Dividend Yield: {dividend_yield * 100}%")
+                    except:
+                        st.write(f"Dividend Yield:")
 
                     # # 주식의 52주 범위 가져오기
                     # fifty_two_week_range = stock.info["fiftyTwoWeekRange"]
                     # print(f"52-Week Range: {fifty_two_week_range}")
 
                     # 시가총액 가져오기
-                    market_cap = stock.info["marketCap"]
-                    st.write(f"Market Cap: ${market_cap / 10**9}B")
+                    try :                        
+                        market_cap = stock.info["marketCap"]
+                        st.write(f"Market Cap: ${market_cap / 10**9}B")
+                    except:
+                        st.write(f"Market Cap: ")
 
                     # 전일 종가 가져오기
                     previous_close = stock.history(period="1d")["Close"].values[0]
