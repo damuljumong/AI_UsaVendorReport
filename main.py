@@ -378,6 +378,14 @@ def main():
             result = chat_model.predict(content + "을 분석해줘")    # OpenAI sknam
             #result = llm.predict(" Vendor Report " + content + ": ") # LLM2 AI Model sknam
             st.write(result)
-
+            
+            # HTML 코드를 직접 추가
+            html_code = """
+            <ins class="kakao_ad_area" style="display:none;"
+            data-ad-unit = "DAN-Cj03yMbg1chnAq9T"
+            data-ad-width = "300"
+            data-ad-height = "250"></ins>
+            <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+            """
 if __name__ == '__main__':
     main()
