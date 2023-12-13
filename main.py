@@ -17,16 +17,19 @@ from prophet import Prophet
 def main():
 
     # while True:  # 무한 루프 시작
+
         # HTML 코드를 직접 추가
         adhtml_code = """
         <ins class="kakao_ad_area" style="display:none;"
-        data-ad-unit = "DAN-Cj03yMbg1chnAq9T"
-        data-ad-width = "300"
-        data-ad-height = "250"></ins>
+        data-ad-unit="DAN-Cj03yMbg1chnAq9T"
+        data-ad-width="300"
+        data-ad-height="250"></ins>
         <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
         """
-        # Streamlit 앱에 HTML 삽입
+        
+        # Streamlit 앱에 HTML 삽입 unsafe_allow_html=True
         st.write(adhtml_code, unsafe_allow_html=True)
+
         # button(username="damuljumong", floating=True, width=221) # Buy me a Coffee
 
         # Buy Me a Beer HTML 코드
