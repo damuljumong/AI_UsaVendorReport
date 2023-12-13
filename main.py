@@ -17,7 +17,16 @@ from prophet import Prophet
 def main():
 
     # while True:  # 무한 루프 시작
-
+        # HTML 코드를 직접 추가
+        adhtml_code = """
+        <ins class="kakao_ad_area" style="display:none;"
+        data-ad-unit = "DAN-Cj03yMbg1chnAq9T"
+        data-ad-width = "300"
+        data-ad-height = "250"></ins>
+        <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+        """
+        # Streamlit 앱에 HTML 삽입
+        st.write(adhtml_code, unsafe_allow_html=True)
         # button(username="damuljumong", floating=True, width=221) # Buy me a Coffee
 
         # Buy Me a Beer HTML 코드
@@ -214,7 +223,16 @@ def main():
                     previous_close = stock.history(period="1d")["Close"].values[0]
                     st.write(f"Previous Close: ${previous_close}")
 
-
+                    # HTML 코드를 직접 추가
+                    adhtml_code = """
+                    <ins class="kakao_ad_area" style="display:none;"
+                    data-ad-unit = "DAN-Cj03yMbg1chnAq9T"
+                    data-ad-width = "300"
+                    data-ad-height = "250"></ins>
+                    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+                    """
+                    # Streamlit 앱에 HTML 삽입
+                    st.write(adhtml_code, unsafe_allow_html=True)
 #============================
 
 
@@ -389,5 +407,6 @@ def main():
             """
             # Streamlit 앱에 HTML 삽입
             st.write(adhtml_code, unsafe_allow_html=True)
+            
 if __name__ == '__main__':
     main()
