@@ -201,14 +201,14 @@ def main():
                     # P/E 비율 가져오기
                     try:
                         pe_ratio = stock.info["trailingPE"]
-                        st.write(f"P/E Ratio: {pe_ratio}")
+                        st.write(f"P/E Ratio: {pe_ratio .2f}")
                     except:
                         st.write(f"P/E Ratio:")
                     
                     # 배당 수익률 가져오기
                     try:
                         dividend_yield = stock.info["trailingAnnualDividendYield"]
-                        st.write(f"Dividend Yield: {dividend_yield * 100}%")
+                        st.write(f"Dividend Yield: {dividend_yield * 100 .2f}%")
                     except:
                         st.write(f"Dividend Yield:")
 
@@ -219,14 +219,14 @@ def main():
                     # 시가총액 가져오기
                     try :                        
                         market_cap = stock.info["marketCap"]
-                        st.write(f"Market Cap: ${market_cap / 10**9}B")
+                        st.write(f"Market Cap: ${market_cap / 10**9 .2f}B")
                     except:
                         st.write(f"Market Cap: ")
 
                     # 전일 종가 가져오기
                     previous_close = stock.history(period="1d")["Close"].values[0]
-                    st.write(f"Previous Close: ${previous_close}")
-
+                    #st.write(f"Previous Close: ${previous_close}")
+                    st.write(f"Previous Close: ${previous_close:.2f}")
                     # HTML 코드를 직접 추가
                     adhtml_code = """
                     <ins class="kakao_ad_area" style="display:none;"
