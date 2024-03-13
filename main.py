@@ -124,11 +124,12 @@ def main():
                     # scale_factor = st.slider("그래프 스케일 조정", 0.1, 10.0, 1.0)
                     # st.line_chart(monthly_prices[["Open", "High", "Low", "Close"]] * scale_factor)
                     # 스케일 팩터를 사용하여 그래프 스케일 조정
-                    scale_factor = st.slider("그래프 스케일 조정", 0.1, 10.0, st.session_state.scale_factor)
-                    st.session_state.scale_factor = scale_factor  # 스케일 팩터 업데이트
+                    #scale_factor = st.slider("그래프 스케일 조정", 0.1, 10.0, st.session_state.scale_factor)
+                    #st.session_state.scale_factor = scale_factor  # 스케일 팩터 업데이트
 
                     # 그래프 스케일 조정
-                    st.line_chart(monthly_prices[["Open", "High", "Low", "Close"]] * scale_factor)
+                    # st.line_chart(monthly_prices[["Open", "High", "Low", "Close"]] * scale_factor)
+                    st.line_chart(monthly_prices[["Open", "High", "Low", "Close"]])
 
                     # interval = "60m"  # 60분 간격의 데이터를 가져옵니다.
                     # # Yahoo Finance에서 데이터 가져오기
