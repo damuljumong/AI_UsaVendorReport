@@ -93,7 +93,9 @@ def main():
                     st.write(f"Current Price: {current_price:.2f}")
                     # st.write("Previous Close:", stock.history(period="1d")["Close"].iloc[0])
                     st.write("Previous Close:", stock.info["previousClose"])
-                    st.write("Open Price:", stock.history(period="1d")["Open"].iloc[0])
+                    open_price=stock.history(period="1d")["Open"].iloc[0]
+                    st.write(f"Open Price: {open_price:.2f}")
+                    #st.write("Open Price:", stock.history(period="1d")["Open"].iloc[0])
                     #st.write("Day's Range:", stock.history(period="1d")["Low"].iloc[0], "-", stock.history(period="1d")["High"].iloc[0])
                     low_price = stock.history(period="1d")["Low"].iloc[0]  # 당일 최저가
                     high_price = stock.history(period="1d")["High"].iloc[0]  # 당일 최고가
