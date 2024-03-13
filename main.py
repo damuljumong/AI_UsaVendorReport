@@ -64,7 +64,7 @@ def main():
         year = 2023
         vendorinfo_records = []
 
-        stock_codes_input = st.text_input('Vendor Stock Symbol을 입력하세요. 예) 애플 Stock Symbol : AAPL,TSLA,NVDA,MSFT,META,GOOG,INTC,AMZN',key='stock_codes_input_2')
+        stock_codes_input = st.text_input('Vendor Stock Symbol을 입력하세요. 예) 애플 Stock Symbol : AAPL,QCOM,TSLA,NVDA,MSFT,META,GOOG,INTC,AMZN,ARM',key='stock_codes_input_2')
 
         if stock_codes_input:
             stock_codes = [code.strip() for code in stock_codes_input.split(',')]
