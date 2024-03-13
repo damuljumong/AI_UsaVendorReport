@@ -17,7 +17,9 @@ from prophet import Prophet
 def main():
 
     # while True:  # 무한 루프 시작
-
+        # fabicon title Wide , normal  layout = 'wide',
+        st.set_page_config(page_title='VendorReport', page_icon = 'BuyBeer_128.png', initial_sidebar_state = 'auto')
+    
         # HTML 코드를 직접 추가
         adhtml_code = """
         <ins class="kakao_ad_area" style="display:none;"
