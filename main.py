@@ -88,11 +88,18 @@ def main():
 
                     st.write("Description:", stock.info["longBusinessSummary"])
 
-                    st.write("Current Price:", stock.history(period="1d")["Close"].iloc[0])
+                    #st.write("Current Price:", stock.history(period="1d")["Close"].iloc[0])
+                    current_price = stock.history(period="1d")["Close"].iloc[0]  # 현재 가격 가져오기
+                    st.write(f"Current Price: {current_price:.2f}")
                     # st.write("Previous Close:", stock.history(period="1d")["Close"].iloc[0])
                     st.write("Previous Close:", stock.info["previousClose"])
                     st.write("Open Price:", stock.history(period="1d")["Open"].iloc[0])
-                    st.write("Day's Range:", stock.history(period="1d")["Low"].iloc[0], "-", stock.history(period="1d")["High"].iloc[0])
+                    #st.write("Day's Range:", stock.history(period="1d")["Low"].iloc[0], "-", stock.history(period="1d")["High"].iloc[0])
+                    low_price = stock.history(period="1d")["Low"].iloc[0]  # 당일 최저가
+                    high_price = stock.history(period="1d")["High"].iloc[0]  # 당일 최고가
+
+                    st.write(f"Day's Range: {low_price:.2f} - {high_price:.2f}")
+
                     st.write("52 Week Range:", stock.info["dayLow"], "-", stock.info["dayHigh"])
 
 
@@ -201,14 +208,14 @@ def main():
                     # P/E 비율 가져오기
                     try:
                         pe_ratio = stock.info["trailingPE"]
-                        st.write(f"P/E Ratio: {pe_ratio.2f}")
+                        st.write(f"P/E Ratio: {pe_ratio:.2f}")
                     except:
                         st.write(f"P/E Ratio:")
                     
                     # 배당 수익률 가져오기
                     try:
                         dividend_yield = stock.info["trailingAnnualDividendYield"]
-                        st.write(f"Dividend Yield: {dividend_yield * 100.2f}%")
+                        st.write(f"Dividend Yield: {dividend_yield * 100:.2f}%")
                     except:
                         st.write(f"Dividend Yield:")
 
@@ -219,7 +226,7 @@ def main():
                     # 시가총액 가져오기
                     try :                        
                         market_cap = stock.info["marketCap"]
-                        st.write(f"Market Cap: ${(market_cap / 10**9).2f}B")
+                        st.write(f"Market Cap: ${(market_cap / 10**9):.2f}B")
                     except:
                         st.write(f"Market Cap: ")
 
