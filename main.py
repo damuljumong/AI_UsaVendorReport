@@ -106,12 +106,17 @@ def main():
                     except:st.write("Description:")
                         
                     #st.write("Current Price:", stock.history(period="1d")["Close"].iloc[0])
-                    current_price = stock.history(period="1d")["Close"].iloc[0]  # 현재 가격 가져오기
-                    st.write(f"Current Price: {current_price:.2f}")
+                    try:current_price = stock.history(period="1d")["Close"].iloc[0]  # 현재 가격 가져오기                    
+                        st.write(f"Current Price: {current_price:.2f}")
+                    except:st.write(f"Current Price:")
+                    
                     # st.write("Previous Close:", stock.history(period="1d")["Close"].iloc[0])
-                    st.write("Previous Close:", stock.info["previousClose"])
-                    open_price=stock.history(period="1d")["Open"].iloc[0]
-                    st.write(f"Open Price: {open_price:.2f}")
+                    try:st.write("Previous Close:", stock.info["previousClose"])
+                    except:st.write("Previous Close:")                       
+                    try:open_price=stock.history(period="1d")["Open"].iloc[0]
+                        st.write(f"Open Price: {open_price:.2f}")
+                    except: st.write(f"Open Price:")
+                    
                     #st.write("Open Price:", stock.history(period="1d")["Open"].iloc[0])
                     #st.write("Day's Range:", stock.history(period="1d")["Low"].iloc[0], "-", stock.history(period="1d")["High"].iloc[0])
                     low_price = stock.history(period="1d")["Low"].iloc[0]  # 당일 최저가
