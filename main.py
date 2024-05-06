@@ -106,7 +106,8 @@ def main():
                     except:st.write("Description:")
                         
                     #st.write("Current Price:", stock.history(period="1d")["Close"].iloc[0])
-                    try:current_price = stock.history(period="1d")["Close"].iloc[0]  # 현재 가격 가져오기                    
+                    try:
+                        current_price = stock.history(period="1d")["Close"].iloc[0]  # 현재 가격 가져오기                    
                         st.write(f"Current Price: {current_price:.2f}")
                     except:st.write(f"Current Price:")
                     
