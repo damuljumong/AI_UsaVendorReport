@@ -121,13 +121,14 @@ def main():
                     
                     #st.write("Open Price:", stock.history(period="1d")["Open"].iloc[0])
                     #st.write("Day's Range:", stock.history(period="1d")["Low"].iloc[0], "-", stock.history(period="1d")["High"].iloc[0])
-                    low_price = stock.history(period="1d")["Low"].iloc[0]  # 당일 최저가
-                    high_price = stock.history(period="1d")["High"].iloc[0]  # 당일 최고가
+                    try:
+                        low_price = stock.history(period="1d")["Low"].iloc[0]  # 당일 최저가
+                        high_price = stock.history(period="1d")["High"].iloc[0]  # 당일 최고가
 
-                    st.write(f"Day's Range: {low_price:.2f} - {high_price:.2f}")
+                        st.write(f"Day's Range: {low_price:.2f} - {high_price:.2f}")
 
-                    st.write("52 Week Range:", stock.info["dayLow"], "-", stock.info["dayHigh"])
-
+                        st.write("52 Week Range:", stock.info["dayLow"], "-", stock.info["dayHigh"])
+                    except: st.write(f"Day's Range:)
 
 
                     # 일일 주식 가격 데이터를 가져옵니다.
