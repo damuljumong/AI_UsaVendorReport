@@ -114,8 +114,8 @@ def main():
                     # st.write("Previous Close:", stock.history(period="1d")["Close"].iloc[0])
                     try:st.write("Previous Close:", stock.info["previousClose"])
                     except:st.write("Previous Close:")                       
-                    try:open_price=stock.history(period="1d")["Open"].iloc[0]
-                        st.write(f"Open Price: {open_price:.2f}")
+                    try:    open_price=stock.history(period="1d")["Open"].iloc[0]
+                            st.write(f"Open Price: {open_price:.2f}")
                     except: st.write(f"Open Price:")
                     
                     #st.write("Open Price:", stock.history(period="1d")["Open"].iloc[0])
