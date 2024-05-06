@@ -125,8 +125,10 @@ def main():
                         low_price = stock.history(period="1d")["Low"].iloc[0]  # 당일 최저가
                         high_price = stock.history(period="1d")["High"].iloc[0]  # 당일 최고가
                         st.write(f"Day's Range: {low_price:.2f} - {high_price:.2f}")
-                    except: st.write("Day's Range:)
-                    try:    st.write("52 Week Range:", stock.info["dayLow"], "-", stock.info["dayHigh"])
+                    except: st.write("Day's Range:")
+                                     
+                    try:
+                        st.write("52 Week Range:", stock.info["dayLow"], "-", stock.info["dayHigh"])                        
                     except: st.write(52 Week Range:)
 
 
