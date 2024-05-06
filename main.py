@@ -126,9 +126,9 @@ def main():
                         high_price = stock.history(period="1d")["High"].iloc[0]  # 당일 최고가
 
                         st.write(f"Day's Range: {low_price:.2f} - {high_price:.2f}")
-
-                        st.write("52 Week Range:", stock.info["dayLow"], "-", stock.info["dayHigh"])
                     except: st.write(f"Day's Range:)
+                    try:    st.write("52 Week Range:", stock.info["dayLow"], "-", stock.info["dayHigh"])
+                    except: st.write(52 Week Range:)
 
 
                     # 일일 주식 가격 데이터를 가져옵니다.
