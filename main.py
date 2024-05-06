@@ -257,9 +257,12 @@ def main():
                         st.write(f"Market Cap: ")
 
                     # 전일 종가 가져오기
-                    previous_close = stock.history(period="1d")["Close"].values[0]
+                    try : 
+                        previous_close = stock.history(period="1d")["Close"].values[0]
                     #st.write(f"Previous Close: ${previous_close}")
-                    st.write(f"Previous Close: ${previous_close:.2f}")
+                        st.write(f"Previous Close: ${previous_close:.2f}")
+                    except:
+                        st.write(f"Previous Close:")
                     # HTML 코드를 직접 추가
                     adhtml_code = """
                     <ins class="kakao_ad_area" style="display:none;"
