@@ -79,17 +79,32 @@ def main():
                     # 기업 정보를 출력합니다.
                     st.write("---")
                     # st.write("stock.info all:", stock.info)
+                    try:st.write("Company Name:", stock.info["longName"])                        
+                    except:st.write("Company Name:")
+                    try:st.write("CEO name:", stock.info["companyOfficers"][0]["name"])
+                    except:st.write("CEO name:")                        
+                    try:st.write("No of full Time Employees:", stock.info["fullTimeEmployees"])
+                    except:st.write("No of full Time Employees:")                           
+                    try:st.write("Symbol:", stock.info["symbol"])
+                    except:st.write("Symbol:")                           
+                    try:st.write("Industry:", stock.info["industry"])
+                    except:st.write("Industry:")                           
+                    try:st.write("Sector:", stock.info["sector"])
+                    except:st.write("Sector:")                           
+                    try:st.write("Website:", stock.info["website"]) # previousClose
+                    except:st.write("Website:")   
+                        
+                    #st.write("Company Name:", stock.info["longName"])
+                    #st.write("CEO name:", stock.info["companyOfficers"][0]["name"])
+                    #st.write("No of full Time Employees:", stock.info["fullTimeEmployees"])
+                    #st.write("Symbol:", stock.info["symbol"])
+                    #st.write("Industry:", stock.info["industry"])
+                    #st.write("Sector:", stock.info["sector"])
+                    #st.write("Website:", stock.info["website"]) # previousClose
 
-                    st.write("Company Name:", stock.info["longName"])
-                    st.write("CEO name:", stock.info["companyOfficers"][0]["name"])
-                    st.write("No of full Time Employees:", stock.info["fullTimeEmployees"])
-                    st.write("Symbol:", stock.info["symbol"])
-                    st.write("Industry:", stock.info["industry"])
-                    st.write("Sector:", stock.info["sector"])
-                    st.write("Website:", stock.info["website"]) # previousClose
-
-                    st.write("Description:", stock.info["longBusinessSummary"])
-
+                    try:st.write("Description:", stock.info["longBusinessSummary"])
+                    except:st.write("Description:")
+                        
                     #st.write("Current Price:", stock.history(period="1d")["Close"].iloc[0])
                     current_price = stock.history(period="1d")["Close"].iloc[0]  # 현재 가격 가져오기
                     st.write(f"Current Price: {current_price:.2f}")
