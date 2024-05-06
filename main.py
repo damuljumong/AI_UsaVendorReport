@@ -129,7 +129,7 @@ def main():
                                      
                     try:
                         st.write("52 Week Range:", stock.info["dayLow"], "-", stock.info["dayHigh"])                        
-                    except: st.write(52 Week Range:)
+                    except: st.write("52 Week Range:")
 
 
                     # 일일 주식 가격 데이터를 가져옵니다.
