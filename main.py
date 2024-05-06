@@ -109,7 +109,7 @@ def main():
                     try:
                         current_price = stock.history(period="1d")["Close"].iloc[0]  # 현재 가격 가져오기                    
                         st.write(f"Current Price: {current_price:.2f}")
-                    except:st.write(f"Current Price:")
+                    except:st.write("Current Price:")
                     
                     # st.write("Previous Close:", stock.history(period="1d")["Close"].iloc[0])
                     try:st.write("Previous Close:", stock.info["previousClose"])
