@@ -206,11 +206,12 @@ def main():
                     try:    actual_data = data[['ds', 'y']]
                     except: st.write("actual_data:")
                     # 실제 값 그래프에 추가
-                    fig1.gca().plot(actual_data['ds'], actual_data['y'], 'r.', label='Actual')
-
+                    try:    fig1.gca().plot(actual_data['ds'], actual_data['y'], 'r.', label='Actual')
+                    except: st.write("fig1 gca plot:")
                     # 그래프에 레전드 추가
-                    fig1.gca().legend(["Prophet Forecast", "Actual"])
-
+                    try:    fig1.gca().legend(["Prophet Forecast", "Actual"])
+                    except: st.write("fig1 gca legend:")
+                        
                     try: st.pyplot(fig1)
                     except: st.write("pyplot:")
                     # st.write("Forecast for Tomorrow:", forecast[['ds', 'yhat']].tail(5))
@@ -220,13 +221,15 @@ def main():
                     # 변경된 DataFrame 출력
                     # st.write("Forecast Close Price for future Tomorrow and 3 Days :", forecast[['Date', 'Close Price']].tail(4))
                     # future 데이터프레임에 있는 모든 날짜 중에서 토요일 및 일요일을 필터링하여 제외
-                    forecast['day_of_week'] = forecast['Date'].dt.dayofweek
-                    filtered_forecast = forecast[~((forecast['day_of_week'] == 5) | (forecast['day_of_week'] == 6))]
-
+                    try:    
+                        forecast['day_of_week'] = forecast['Date'].dt.dayofweek
+                        filtered_forecast = forecast[~((forecast['day_of_week'] == 5) | (forecast['day_of_week'] == 6))]
+                    except: st.write("filtered_forecast:")
                     # 필터링된 예측 데이터 출력 (토요일 및 일요일 제외)
-                    st.write("Forecast for Next 5 Days (Excluding Saturdays and Sundays):")
-                    st.write(filtered_forecast[['Date', 'Close Price']].tail(5))
-                    
+                    try: 
+                        st.write("Forecast for Next 5 Days (Excluding Saturdays and Sundays):")
+                        st.write(filtered_forecast[['Date', 'Close Price']].tail(5))
+                    except: st.write("filtered_forecast:")
                     # 분기별 재무 정보 가져오기
                     quarterly_financials = stock.quarterly_financials
                     st.write("Quarterly Financial Statements:", quarterly_financials)
