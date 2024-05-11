@@ -240,9 +240,9 @@ def main():
                     try:
                             financials = stock.financials
                             st.write("Financial Statements:",financials)
-                    except: st.write(Financial Statements:")
+                    except: st.write("Financial Statements:")
 
-                    # # 이익과 손실 계산서 (Income Statement)를 가져옵니다.
+                    # 이익과 손실 계산서 (Income Statement)를 가져옵니다.
                     # income_statement = stock.quarterly_earnings
                     # print("Income Statement:",income_statement)
 
