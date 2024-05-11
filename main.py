@@ -188,7 +188,10 @@ def main():
                         fourier_order=3,  # 주기성을 고려할 정도 (조절 가능)
                         prior_scale=0.1  # 하이퍼파라미터 (조절 가능)
                     )
-                    model.fit(data)
+                    try:
+                        model.fit(data)
+                    except: st.write("model fit:")
+                    #model.fit(data)
                     
                     # future = model.make_future_dataframe(periods=24, freq='H')
                     # 내일을 예측하려면 1일 (하루)의 미래 데이터프레임 생성
