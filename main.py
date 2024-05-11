@@ -65,7 +65,8 @@ def main():
 
         year = 2023
         vendorinfo_records = []
-
+        st.write("ETF Symbol : VIG,SCHD,VYM,DGRO,SDY,DVY,NOBL,DGRO,FVD,HDV")
+        st.write("Korea Symbol code.KS ex) : 005930.KS,072130.KS,078000.KS,069410.KS")
         stock_codes_input = st.text_input('Vendor Stock Symbol을 입력하세요. 예) 애플 Stock Symbol : AAPL,QCOM,TSLA,NVDA,MSFT,META,GOOG,INTC,AMZN,ARM',key='stock_codes_input_2')
 
         if stock_codes_input:
