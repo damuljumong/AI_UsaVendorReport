@@ -216,8 +216,8 @@ def main():
                     except: st.write("pyplot:")
                     # st.write("Forecast for Tomorrow:", forecast[['ds', 'yhat']].tail(5))
                     # 'ds'와 'yhat' 열의 이름 변경
-                    forecast.rename(columns={'ds': 'Date', 'yhat': 'Close Price'}, inplace=True)
-
+                    try: forecast.rename(columns={'ds': 'Date', 'yhat': 'Close Price'}, inplace=True)
+                    except: st.write("forecast rename:")
                     # 변경된 DataFrame 출력
                     # st.write("Forecast Close Price for future Tomorrow and 3 Days :", forecast[['Date', 'Close Price']].tail(4))
                     # future 데이터프레임에 있는 모든 날짜 중에서 토요일 및 일요일을 필터링하여 제외
@@ -231,13 +231,15 @@ def main():
                         st.write(filtered_forecast[['Date', 'Close Price']].tail(5))
                     except: st.write("filtered_forecast:")
                     # 분기별 재무 정보 가져오기
-                    quarterly_financials = stock.quarterly_financials
-                    st.write("Quarterly Financial Statements:", quarterly_financials)
-
+                    try:
+                        quarterly_financials = stock.quarterly_financials
+                        st.write("Quarterly Financial Statements:", quarterly_financials)
+                    except: st.write("Quarterly Financial Statements:")
                     # Yahoo Finance에서 재무 정보를 가져옵니다.
-                    financials = stock.financials
-                    st.write("Financial Statements:",financials)
-
+                    try:
+                        financials = stock.financials
+                        st.write("Financial Statements:",financials)
+                    except: st.write(Financial Statements:")
 
                     # # 이익과 손실 계산서 (Income Statement)를 가져옵니다.
                     # income_statement = stock.quarterly_earnings
