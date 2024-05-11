@@ -195,20 +195,24 @@ def main():
                     
                     # future = model.make_future_dataframe(periods=24, freq='H')
                     # 내일을 예측하려면 1일 (하루)의 미래 데이터프레임 생성
-                    future = model.make_future_dataframe(periods=7, freq='D')
-                    forecast = model.predict(future)
+                    try:
+                        future = model.make_future_dataframe(periods=7, freq='D')
+                        forecast = model.predict(future)
+                    except: st.write("model predict:")
                     # st.write("Forecast for Tomorrow:", forecast)
-                    fig1 = model.plot(forecast)
+                    try:    fig1 = model.plot(forecast)
+                    except: st.write("model plot:")
                     # 실제 값 가져오기 (예제에서는 monthly_prices를 사용)
-                    actual_data = data[['ds', 'y']]
-
+                    try:    actual_data = data[['ds', 'y']]
+                    except: st.write("actual_data:")
                     # 실제 값 그래프에 추가
                     fig1.gca().plot(actual_data['ds'], actual_data['y'], 'r.', label='Actual')
 
                     # 그래프에 레전드 추가
                     fig1.gca().legend(["Prophet Forecast", "Actual"])
 
-                    st.pyplot(fig1)
+                    try: st.pyplot(fig1)
+                    except: st.write("pyplot:")
                     # st.write("Forecast for Tomorrow:", forecast[['ds', 'yhat']].tail(5))
                     # 'ds'와 'yhat' 열의 이름 변경
                     forecast.rename(columns={'ds': 'Date', 'yhat': 'Close Price'}, inplace=True)
